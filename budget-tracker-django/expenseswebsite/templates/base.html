@@ -20,12 +20,9 @@
     <nav class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
       <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Budget Tracker</a>
 
-      <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-
       <ul class="navbar-nav px-3" style="display: flex; flex-direction: row; align-items: center;">
-
-        <li class="nav-item">
-          <span class="nav-link" href="">
+        <li class="nav-item text-nowrap">
+          <span class="nav-link" href="" style="margin-right: 5px">
             Hi, {{request.user.username}}
           </span>
         </li>

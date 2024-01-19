@@ -3,14 +3,14 @@
 <div class="container mt-5">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'expenses' %}">Expenses</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Edit Expenses</li>
+      <li class="breadcrumb-item"><a href="{% url 'incomes' %}">Incomes</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Add Incomes</li>
     </ol>
   </nav>
 
   <div class="card">
     <div class="card-body">
-      <form action="{% url 'edit-expense' expense.id%}" method="post">
+      <form action="{% url 'add-income' %}" method="post">
       {% include 'partials/messages.html' %}
       {% csrf_token %}
         <div class="form-group">
@@ -24,36 +24,27 @@
 
         <div class="form-group mt-3">
           <label for="">Description: </label>
-          <input
-            type="text"
-            class="form-control"
-            name="description"
-            value="{{values.description}}">
+          <input type="text"
+          class="form-control"
+          name="description"
+          value="{{values.description}}">
         </div>
 
         <div class="form-group mt-3">
           <label for="">Category: </label>
           <select class="form-control" name="category">
-            <option selected name="category" value="{{values.category}}">{{values.category}}</option>
-
-
             {% for category in categories %}
               <option name="category" value="{{category.name}}">{{category.name}}</option>
-            {% endfor%}
+            {% endfor %}
           </select>
 
         <div class="form-group mt-3">
           <label for="">Date: </label>
-          <input
-            type="date"
-            class="form-control"
-            name="date"
-            value="{{values.date |date:'Y-m-d'}}">
+          <input type="date" class="form-control" name="date">
         </div>
         </div>
 
-        <input type="submit" value="Save" class="btn btn-primary mt-3"/>
-        <a href="{% url 'delete-expense' expense.id %}" class="btn btn-danger mt-3">Delete</a>
+        <input type="submit" value="Submit" class="btn btn-bd-primary mt-3"/>
       </form>
     </div>
   </div>
